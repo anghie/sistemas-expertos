@@ -18,11 +18,13 @@ public class Principal {
 			baseDeDatos.add(new Actitud(9000,
 					"Julieta no desea salir en citas con Romeo como lo hacian usualmente")); //UNA ACTITUD
 			baseDeDatos.add(new Actitud(1000,
-					"Julieta actua inusualmente fastidiada con Romeo cuando se reúne con él")); //OTRA ACTITUD
+					"Julieta actua inusualmente fastidiada con Romeo cuando se reune con el")); //OTRA ACTITUD
+			baseDeDatos.add(new Actitud(8000,
+					"Julieta empieza a olvidar aniversarios y fechas especiales en la relacion")); //OTRA ACTITUD
 			//baseDeDatos.add(new Actitud(800)); //ACTITUD FUERA DE LA BASE DE DATOS
 			
 			System.out.println("***INGRESO DE DATOS***");
-			System.out.println("Usted ingresó estos indicios:");
+			System.out.println("Usted ingreso estos indicios:");
 			
 			for (Actitud actitud : baseDeDatos) {
 				System.out.println(actitud);
@@ -43,7 +45,7 @@ public class Principal {
 		Iterator<Explicacion> explicaciones = motor.ejecutar();
 		
 		System.out.println("***RESULTADOS***");
-		System.out.println("El sistema le brinda la(s) siguiente(s) explicación(es) o inferencia(s) intermedia(s):");
+		System.out.println("El sistema le brinda la(s) siguiente(s) explicacion(es) o inferencia(s) intermedia(s):");
 				
 		int explicacionesNo = 0;
 		while (explicaciones.hasNext()) {
