@@ -6,18 +6,19 @@ import java.util.List;
 
 import pe.edu.pucp.sistemasexpertos.proyecto.modelo.Actitud;
 import pe.edu.pucp.sistemasexpertos.proyecto.modelo.Explicacion;
+import pe.edu.pucp.sistemasexpertos.proyecto.modelo.Nodo;
 
 public class MotorInferencia {
     private Rete motor;
     private WorkingMemoryMarker marcador;
 
-    public MotorInferencia(List<Actitud> baseDeDatos) throws JessException {
+    public MotorInferencia(List<Nodo> baseDeDatos) throws JessException {
     	motor = new Rete();
     	motor.reset();
 
     	motor.batch("reglas.clp");
     	
-    	for (Actitud actitud : baseDeDatos) {
+    	for (Nodo actitud : baseDeDatos) {
     		motor.add(actitud);
     	}
 
@@ -27,13 +28,22 @@ public class MotorInferencia {
     @SuppressWarnings("unchecked")
 	public Iterator<Explicacion> ejecutar() throws JessException {
     	
-    	motor.add(new Actitud(9000, "Julieta no desea salir en citas con Romeo como lo hacian usualmente"));
-    	
-    	motor.resetToMark(marcador);
-    	
+//    	motor.resetToMark(marcador);
+//    	
     	motor.run();
         
-        return motor.getObjects(new Filter.ByClass(Explicacion.class));
+//        Iterator<Explicacion> explicaciones =
+//        		motor.getObjects(new Filter.ByClass(Explicacion.class));
+//        
+//        while (explicaciones.hasNext()) {
+//			Explicacion explicacion = explicaciones.next();
+//			motor.add(explicacion);
+//		}
+//        
+//        motor.run();
+        
+        return motor.getObjects(new Filter.ByClass(Explicacion.class));       
+        
     }
     
 }
