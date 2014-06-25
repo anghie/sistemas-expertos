@@ -4,29 +4,30 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import pe.edu.pucp.sistemasexpertos.proyecto.modelo.Actitud;
-import pe.edu.pucp.sistemasexpertos.proyecto.modelo.Explicacion;
+import jess.Fact;
 import jess.JessException;
+import pe.edu.pucp.sistemasexpertos.proyecto.modelo.Explicacion;
+import pe.edu.pucp.sistemasexpertos.proyecto.modelo.Nodo;
 
 public class Principal {
 
 	public static void main(String[] args) {
 		try {
 						
-			List<Actitud> baseDeDatos = new ArrayList<>();
-
-			baseDeDatos.add(new Actitud(9000,
+			List<Nodo> baseDeDatos = new ArrayList<>();
+			
+			baseDeDatos.add(new Nodo(9000,
 					"Julieta no desea salir en citas con Romeo como lo hacian usualmente")); //UNA ACTITUD
-			baseDeDatos.add(new Actitud(1000,
-					"Julieta actua inusualmente fastidiada con Romeo cuando se reune con el")); //OTRA ACTITUD
-			baseDeDatos.add(new Actitud(8000,
-					"Julieta empieza a olvidar aniversarios y fechas especiales en la relacion")); //OTRA ACTITUD
+//			baseDeDatos.add(new Nodo(1000,
+//					"Julieta actua inusualmente fastidiada con Romeo cuando se reune con el")); //OTRA ACTITUD
+//			baseDeDatos.add(new Nodo(8000,
+//					"Julieta empieza a olvidar aniversarios y fechas especiales en la relacion")); //OTRA ACTITUD
 			//baseDeDatos.add(new Actitud(800)); //ACTITUD FUERA DE LA BASE DE DATOS
 			
 			System.out.println("***INGRESO DE DATOS***");
 			System.out.println("Usted ingreso estos indicios:");
 			
-			for (Actitud actitud : baseDeDatos) {
+			for (Nodo actitud : baseDeDatos) {
 				System.out.println(actitud);
 			}
 			
@@ -49,7 +50,12 @@ public class Principal {
 				
 		int explicacionesNo = 0;
 		while (explicaciones.hasNext()) {
-			System.out.println(explicaciones.next());
+			Explicacion explicacion = explicaciones.next();
+			System.out.println(explicacion);
+//			System.out.println("\tActitudes que explica:");
+//			for(Actitud actitud : explicacion.getActitudesQueExplica()) {
+//				System.out.println("\t" + actitud);
+//			}
 			explicacionesNo++;
 		}
 		
